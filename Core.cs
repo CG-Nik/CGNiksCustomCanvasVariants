@@ -30,7 +30,7 @@ namespace CGNiksCustomCanvasVariants
             Material cutout = UnityEngine.Object.Instantiate(libMaterial.physicalMaterial.GetMaterial(PhysicalMaterialChannel.B));
 
             worn.name = name + " Worn";
-            cutout.name = cutout + " Cutout";
+            cutout.name = name + " Cutout";
 
             worn.SetVector("_ColorA", colorA_worn);
             worn.SetVector("_Color", color_worn);
@@ -146,6 +146,32 @@ namespace CGNiksCustomCanvasVariants
                         {
                             new Keyframe(0f, 0.5f),
                             new Keyframe(1f, 0.3f)
+                        }),
+                        0f,
+                        100f
+                    )
+                }
+            );
+
+            AddCanvas(
+                "Dark Brown Canvas",
+                61795,
+                new MaterialConfig() { WeightMultiplier = 1.2f, NailHealthMultiplier = 0.8f, MaxCraftingDamageMultiplier = 0.8f },
+                new Vector4(0.5f * 0.7f, 0.333f * 0.7f, 0f, 1f),
+                new Vector4(0.6f * 0.7f, 0.4f * 0.7f, 0f, 1f),
+                new Vector4(0.55f * 0.7f, 0.366f * 0.7f, 0f, 1f),
+                new Vector4(0.6f * 0.7f, 0.4f * 0.7f, 0f, 1f),
+                true,
+                0.5f,
+                0.5f,
+                new AttributeCurveRange[]
+                {
+                    new AttributeCurveRange(
+                        (BiomeAttribute)Resources.FindObjectsOfTypeAll(typeof(BiomeAttribute)).Where(attribute => attribute.name == "_Depth").First(),
+                        new AnimationCurve(new Keyframe[]
+                        {
+                            new Keyframe(0f, 0.1f),
+                            new Keyframe(1f, 0.7f)
                         }),
                         0f,
                         100f
