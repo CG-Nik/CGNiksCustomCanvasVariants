@@ -178,6 +178,32 @@ namespace CGNiksCustomCanvasVariants
                     )
                 }
             );
+
+            AddCanvas(
+                "Black Canvas",
+                61796,
+                new MaterialConfig() { NailHealthMultiplier = 1.2f },
+                new Vector4(0.15f, 0.15f, 0.15f, 1f),
+                new Vector4(0.2f, 0.2f, 0.2f, 1f),
+                new Vector4(0.175f, 0.175f, 0.175f, 1f),
+                new Vector4(0.2f, 0.2f, 0.2f, 1f),
+                true,
+                0.5f,
+                0.5f,
+                new AttributeCurveRange[]
+                {
+                    new AttributeCurveRange(
+                        (BiomeAttribute)Resources.FindObjectsOfTypeAll(typeof(BiomeAttribute)).Where(attribute => attribute.name == "_Depth").First(),
+                        new AnimationCurve(new Keyframe[]
+                        {
+                            new Keyframe(0f, 0f),
+                            new Keyframe(1f, 1f)
+                        }),
+                        0f,
+                        100f
+                    )
+                }
+            );
         }
     }
 }
